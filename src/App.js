@@ -1,26 +1,44 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from 'react'
+import axios from 'axios'
+import './App.css'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import {BrowserRouter, Switch, Route} from 'react-router-dom'
+import Home from './components/Home'
+import Login from './components/registration/Login'
+import Signup from './components/registration/Signup'
+
+export default class App extends Component {
+  state = {
+    isLoggedIn: false,
+    user: {},
+  }
+
+  handleLogin = data => {
+    this.setState({
+      isLoggedIn: true,
+      user: data.user
+    })
+  }
+
+  handleLogout = () => {
+    this.setState({
+      isLoggedIn: false,
+      user: {}
+    })
+  }
+
+  render() {
+    return (
+      <div>
+        <BrowserRouter>
+          <Switch>
+            <Route exact path='/' component={Home} />
+            <Route exact path='/login' component={Login} />
+            <Route exact path='/signup' component={Signup} />
+          </Switch>
+        </BrowserRouter>
+      </div>
+    )
+  }
 }
 
-export default App;
