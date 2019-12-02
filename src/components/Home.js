@@ -1,19 +1,19 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
 import '../styles/Home.css'
-import Logo from '../images/lark_logo.png'
+// import Logo from '../images/lark_logo.png'
+import NavBar from './NavBar'
+import Login from './registration/Login'
+import Signup from './registration/Signup'
 
 export default function Home() {
     return (
         <div>
-            <nav className='nav-bar'>
-                <img alt='logo' src={Logo}/>
-            </nav>
+           <NavBar />
             <main className='main'>
                 <div>
-                    <Link to='/login'>
-                        <button>Welcome!</button>
-                    </Link>
+                   <Login />
+                   {/* <Signup /> */}
                 </div>
             </main>
         

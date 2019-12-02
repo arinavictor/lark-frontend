@@ -1,9 +1,11 @@
+import history from '../history'
+
 const newUserUrl = "http://localhost:9000/users"
 const authUrl = "http://localhost:9000/login"
 
-export const postUser = user => {
-    return dispatch => {
-        return fetch(newUserUrl, {
+
+export const postUser = (dispatch, user) => {
+        fetch(newUserUrl, {
             method: 'POST',
             headers: {
                 "Content-Type": 'application/json',
@@ -19,18 +21,13 @@ export const postUser = user => {
                     dispatch(loginUser(data.user))
                 }
             })
-    }  
+      
 }
 
-const loginUser = userObj => ({
-    type: "LOGIN_USER",
-    payload: userObj
-})
 
-
-export const userLoginFetch = user => {
-    return dispatch => {
-        return fetch(authUrl, {
+export const userLoginFetch = (dispatch, user) => {
+    console.log("user obj", user)
+        fetch(authUrl, {
             method: "POST",
             headers: {
                 "Content-Type": 'application/json' 
@@ -39,13 +36,24 @@ export const userLoginFetch = user => {
         })
             .then(response => response.json())
             .then(response => {
-                if (response.message) {
-                    console.error(response.message)
+                if (response.token) {
+                    localStorage.setItem("token", response.token)
+                    dispatch(loginUser(response.user))
+                    history.push('/landing')
+
                 } else {
-                    console.log(response.token)
-                    // localStorage.setItem("token", data.jwt)
-                    // dispatch(loginUser)
+                    console.log("response", response)
+                   console.log("error", response.error)
                 }
             })
-    }
+    
 }
+
+export const logoutUser = () => ({
+    type: 'LOGOUT_USER'
+})
+
+const loginUser = userObj => ({
+    type: "LOGIN_USER",
+    payload: userObj
+})

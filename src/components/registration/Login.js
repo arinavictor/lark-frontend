@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import {Link} from 'react-router-dom'
 import {connect} from 'react-redux'
 import {userLoginFetch} from '../../actions/user'
-
 import '../../styles/Registration.css'
 import backArrow from '../../images/left-arrow.png'
 
@@ -18,11 +17,18 @@ class Login extends Component {
             [name]: value 
         })
     }
-
+    
     handleSubmit = event => {
+        console.log(this.state)
         event.preventDefault()
        this.props.userLoginFetch(this.state)
+    //    console.log(this.props)
+    //    this.props.history.push('/landing')
+    //    this.redirect()
     }
+
+    // redirect = () => {
+    // }
 
     render() {
         const {username, password} = this.state 
@@ -66,7 +72,7 @@ class Login extends Component {
 }
 
 const mapDispatchToProps = dispatch => ({
-    userLoginFetch: userInfo => dispatch(userLoginFetch(userInfo))
+    userLoginFetch: userInfo => userLoginFetch(dispatch, userInfo)
 })
 
 export default connect(null, mapDispatchToProps)(Login)
