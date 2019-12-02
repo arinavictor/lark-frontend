@@ -1,15 +1,16 @@
 import React, { Component } from 'react'
-import axios from 'axios'
 import {Link} from 'react-router-dom'
+import {connect} from 'react-redux'
+import {postUser} from '../../actions/user'
+
 import '../../styles/Registration.css'
 import backArrow from '../../images/left-arrow.png'
 
-export default class Login extends Component {
+ class Signup extends Component {
     
     state = {
         username: '',
-        password: '',
-        password_confirmation: ''
+        password: ''
     }
 
     handleChange = event => {
@@ -21,10 +22,11 @@ export default class Login extends Component {
 
     handleSubmit = event => {
         event.preventDefault()
+        this.props.postUser(this.state)
       
     }
     render() {
-        const {username, password, password_confirmation} = this.state 
+        const {username, password} = this.state 
         return (
             <div>
                 <Link to='/'>
@@ -36,7 +38,6 @@ export default class Login extends Component {
                         <Link to='/signup'>Sign Up</Link>
                     </section>
 
-               
                     <form onSubmit={this.handleSubmit}>
                         <input 
                             placeholder='username' 
@@ -52,14 +53,7 @@ export default class Login extends Component {
                             value={password} 
                             onChange={this.handleChange}
                         />
-                        <input 
-                            placeholder='confirm password' 
-                            type='password' 
-                            name='password_confirmation' 
-                            value={password_confirmation} 
-                            onChange={this.handleChange}
-                        />
-
+                    
                         <button placeholder='submit' type='submit'>
                             Sign Up
                         </button>
@@ -69,3 +63,9 @@ export default class Login extends Component {
         )
     }
 }
+
+const mapDispatchToProps = dispatch => ({
+    postUser: userInfo => dispatch(postUser(userInfo))
+})
+
+export  default connect(null, mapDispatchToProps)(Signup)

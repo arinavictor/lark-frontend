@@ -1,14 +1,15 @@
 import React, { Component } from 'react'
-import axios from 'axios'
 import {Link} from 'react-router-dom'
+import {connect} from 'react-redux'
+import {userLoginFetch} from '../../actions/user'
+
 import '../../styles/Registration.css'
 import backArrow from '../../images/left-arrow.png'
 
-export default class Login extends Component {
+class Login extends Component {
     state = {
         username: '',
-        password: '',
-        errors: ''
+        password: ''
     }
 
     handleChange = event => {
@@ -20,9 +21,9 @@ export default class Login extends Component {
 
     handleSubmit = event => {
         event.preventDefault()
-
-        const {username, password} = this.state
+       this.props.userLoginFetch(this.state)
     }
+
     render() {
         const {username, password} = this.state 
         return (
@@ -63,4 +64,10 @@ export default class Login extends Component {
         )
     }
 }
+
+const mapDispatchToProps = dispatch => ({
+    userLoginFetch: userInfo => dispatch(userLoginFetch(userInfo))
+})
+
+export default connect(null, mapDispatchToProps)(Login)
 
