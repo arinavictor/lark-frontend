@@ -1,14 +1,21 @@
 import React, { Component } from 'react'
 import {Link} from 'react-router-dom'
 import {connect} from 'react-redux'
-import {userLoginFetch} from '../../actions/user'
+import {userLoginFetch, logoutUser} from '../../actions/user'
 import '../../styles/Registration.css'
-import backArrow from '../../images/left-arrow.png'
+// import backArrow from '../../images/left-arrow.png'
+import '../../styles/Home.css'
+
+import NavBar from '../NavBar'
 
 class Login extends Component {
     state = {
         username: '',
         password: ''
+    }
+
+    componentDidMount = () => {
+        this.props.logout()
     }
 
     handleChange = event => {
@@ -19,42 +26,34 @@ class Login extends Component {
     }
     
     handleSubmit = event => {
-        console.log(this.state)
         event.preventDefault()
        this.props.userLoginFetch(this.state)
-    //    console.log(this.props)
-    //    this.props.history.push('/landing')
-    //    this.redirect()
+        .then(r => this.props.history.push('/'))
+       
     }
-
-    // redirect = () => {
-    // }
-
-    render() {
+    
+        render() {
         const {username, password} = this.state 
         return (
             <div>
-                <Link to='/'>
-                    <img alt='back' className='back-btn' src={backArrow}/>
-                </Link>
-
+                <NavBar />
+                <main className='main'>
                 <div className='form-link-container'>
-                    <section className='link-container'>
-                        <Link to='/login'>Log In</Link>
-                        <Link to='/signup'>Sign Up</Link>
-                    </section>
                     <div className='form-container'>
+                        <h1>Log In</h1>
                         <form onSubmit={this.handleSubmit}>
                             <input 
                                 placeholder='username' 
                                 type='text' 
                                 name='username' 
+                                autoComplete='username'
                                 value={username} 
                                 onChange={this.handleChange}
                             />
                             <input 
                                 placeholder='password' 
-                                type='password' 
+                                type='password'
+                                autoComplete='current-password'
                                 name='password' 
                                 value={password} 
                                 onChange={this.handleChange}
@@ -64,15 +63,21 @@ class Login extends Component {
                                 Log In
                             </button>
                         </form>
+
+                        <Link to='/signup'>
+                        <p>New here?</p>
+                        </Link>
                     </div>
                 </div>
+                </main>
             </div>
         )
     }
 }
 
 const mapDispatchToProps = dispatch => ({
-    userLoginFetch: userInfo => userLoginFetch(dispatch, userInfo)
+    userLoginFetch: userInfo => userLoginFetch(dispatch, userInfo),
+    logout: () => logoutUser(dispatch)
 })
 
 export default connect(null, mapDispatchToProps)(Login)

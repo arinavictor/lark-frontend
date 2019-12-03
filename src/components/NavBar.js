@@ -1,26 +1,28 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { logoutUser } from '../actions/user'
-
 import {Link} from 'react-router-dom'
 
-import Logo from '../images/lark_logo.png'
+// import {Link} from 'react-router-dom'
 
-function NavBar() {
+import Logo from '../images/lark_logo3.png'
+
+function NavBar({user}) {
     return (
-        <div>
-            <header>
-                <img alt='logo' src={Logo}/> 
-            </header>
-            <ul>
-                <li><Link to='/'>Home</Link></li>
+        <div className='nav-bar'>
+            <img alt='logo' src={Logo}/> 
+            <ul className='main-nav'>
+                <li><Link to='/games'>games</Link></li>
+                <li><Link to='/contact'>contact</Link></li>
+               <li>{ user ? <Link to='/login'>logout</Link> : null }</li>
             </ul>
         </div>
     )
 }
 
+
 const mapStateToProps = ({user}) => ({
-    currentUser: user
+    user
 })
 
 const mapDispatchToProps = (dispatch) => ({

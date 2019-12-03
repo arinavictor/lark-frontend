@@ -2,9 +2,9 @@ import React, { Component } from 'react'
 import {Link} from 'react-router-dom'
 import {connect} from 'react-redux'
 import {postUser} from '../../actions/user'
+import NavBar from '../NavBar'
 
 import '../../styles/Registration.css'
-import backArrow from '../../images/left-arrow.png'
 
  class Signup extends Component {
     
@@ -23,49 +23,51 @@ import backArrow from '../../images/left-arrow.png'
     handleSubmit = event => {
         event.preventDefault()
         this.props.postUser(this.state)
+            .then(r => this.props.history.push('/login'))
       
     }
     render() {
         const {username, password} = this.state 
         return (
             <div>
-                <Link to='/'>
-                    <img alt='back' className='back-btn' src={backArrow}/>
-                </Link>
+                <NavBar />
+                <main className='main'>
                 <div className='form-link-container'>
-                    <section className='link-container' >
-                        <Link to='/login'>Log In</Link>
-                        <Link to='/signup'>Sign Up</Link>
-                    </section>
-
-                    <form onSubmit={this.handleSubmit}>
-                        <input 
-                            placeholder='username' 
-                            type='text' 
-                            name='username' 
-                            value={username} 
-                            onChange={this.handleChange}
-                        />
-                        <input 
-                            placeholder='password' 
-                            type='password' 
-                            name='password' 
-                            value={password} 
-                            onChange={this.handleChange}
-                        />
-                    
-                        <button placeholder='submit' type='submit'>
-                            Sign Up
-                        </button>
-                    </form>
+                    <div className='form-container'>
+                        <h1>Sign Up</h1>
+                        <form onSubmit={this.handleSubmit}>
+                            <input 
+                                placeholder='username' 
+                                type='text' 
+                                name='username' 
+                                value={username} 
+                                onChange={this.handleChange}
+                                />
+                            <input 
+                                placeholder='password' 
+                                type='password' 
+                                name='password' 
+                                value={password} 
+                                onChange={this.handleChange}
+                                />
+                        
+                            <button placeholder='submit' type='submit'>
+                                Sign Up
+                            </button>
+                        </form>
+                        <Link to='/login'>
+                            <p>Already a user?</p>
+                        </Link>
+                    </div>
                 </div>
+            </main>
             </div>
         )
     }
 }
 
 const mapDispatchToProps = dispatch => ({
-    postUser: userInfo => dispatch(postUser(userInfo))
+    postUser: userInfo => postUser(dispatch, userInfo)
 })
 
 export  default connect(null, mapDispatchToProps)(Signup)

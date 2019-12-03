@@ -1,10 +1,36 @@
-import React from 'react'
+import React, { Component } from 'react'
+import { connect } from 'react-redux'
+import {validateUser} from '../actions/user'
+import NavBar from './NavBar'
 
-export default function Landing() {
-    return (
-        <div>
-            <h1>Made it to dashboard!!</h1>
-            <button className='logout-btn'> Logout </button>
-        </div>
-    )
+class Landing extends Component {
+
+    componentDidMount = () => {
+       this.props.validate()
+    }
+
+    render() {
+        const {history} = this.props
+        if (!localStorage.token) {
+            history.push('/login')
+        }
+        
+        return  (
+            <div>
+                <NavBar />
+            </div>
+        )
 }
+    
+   
+}
+
+const mapStateToProps = ({user}) => ({
+    user
+})
+
+const mapDispatchToProps = (dispatch) => ({
+    validate: () => validateUser(dispatch)
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(Landing)

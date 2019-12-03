@@ -1,11 +1,11 @@
-import history from '../history'
 
 const newUserUrl = "http://localhost:9000/users"
 const authUrl = "http://localhost:9000/login"
+const BASE_URL = "http://localhost:9000"
 
 
 export const postUser = (dispatch, user) => {
-        fetch(newUserUrl, {
+       return fetch(newUserUrl, {
             method: 'POST',
             headers: {
                 "Content-Type": 'application/json',
@@ -13,12 +13,12 @@ export const postUser = (dispatch, user) => {
             body: JSON.stringify({user})
         })
             .then(response => response.json())
-            .then(data => {
-                if (data.status >= 400) {
-                    throw new Error("Couldn't create user")
+            .then(response => {
+                if (response.user) {
+                    localStorage.setItem("token", response.token)
+                    dispatch(loginUser(response.user))
                 } else {
-                    localStorage.setItem("token", data.jwt)
-                    dispatch(loginUser(data.user))
+                   console.log("error", response.error)
                 }
             })
       
@@ -26,8 +26,7 @@ export const postUser = (dispatch, user) => {
 
 
 export const userLoginFetch = (dispatch, user) => {
-    console.log("user obj", user)
-        fetch(authUrl, {
+       return fetch(authUrl, {
             method: "POST",
             headers: {
                 "Content-Type": 'application/json' 
@@ -39,19 +38,30 @@ export const userLoginFetch = (dispatch, user) => {
                 if (response.token) {
                     localStorage.setItem("token", response.token)
                     dispatch(loginUser(response.user))
-                    history.push('/landing')
 
                 } else {
-                    console.log("response", response)
                    console.log("error", response.error)
                 }
             })
     
 }
 
-export const logoutUser = () => ({
-    type: 'LOGOUT_USER'
-})
+export const validateUser = (dispatch) => {
+    fetch(`${BASE_URL}/profile`, {
+        method: 'GET',
+        headers: {
+            "Content-Type": "application/json",
+            "Authorization": `Bearer ${localStorage.token}`
+        }
+    })
+    .then(response => response.json())
+    .then(response => dispatch(loginUser(response.user)))
+}
+
+export const logoutUser = (dispatch) => { 
+    localStorage.removeItem("token")
+    dispatch({ type: 'LOGOUT_USER'})
+}
 
 const loginUser = userObj => ({
     type: "LOGIN_USER",

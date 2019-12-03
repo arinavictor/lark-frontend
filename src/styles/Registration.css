@@ -1,55 +1,140 @@
+@import url('https://fonts.googleapis.com/css?family=Titillium+Web:300&display=swap');
+
 * {
     box-sizing: border-box;
+    
 }
 
-.back-btn {
-    margin: 3% 0 3% 0;
-    width: 30px;
+body {
+    background-color: #F3DCD3;
+}
+
+.nav-bar {
+    font-family: 'Titillium Web', sans-serif;
     /* position: fixed; */
+    width: 100vw;
+    height: 12vh;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    /* padding-bottom: 10px; */
+}
+
+
+.nav-bar img {
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    width: 10vw;
+    height: 8vh;
+    padding-bottom: 3px;
+    padding-left: 15px;
+    /* height: 8vh; */
+}
+
+.main-nav {
+    width: 100vw;
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+    justify-content: space-evenly;
+    align-items: flex-end;
+    position: relative;
+    /* border-top: 1px solid gray;
+    border-bottom: 1px solid gray; */
+    /* bottom: 0; */
+}
+
+.main-nav li {
+    /* border: 0.5px solid rgb(176, 191, 199); */
+    /* padding: 2px 8px 2px 8px; */
+    /* background-color: #F3DCD3; */
+    padding-bottom: 3px;
+}
+
+.main-nav li:hover {
+    color: #B0BFC7;
+}
+
+.main {
+    /* width: 90vh; */
+    height: 90vh;
+    display: flex;
+    align-items: center;
     
 }
 
 form {
-    margin-top: 3%;
     display: flex;
     flex-direction: column;
 }
 
+form > button, input {
+        width: 200px;
+        height: 35px;
+        border-radius: 10px;
+        margin: 5px auto;
+        font-size: 15px;
+        padding: 3px 15px;
+}
+
 form > button {
-    width: 200px;
+    background-color: rgb(176, 191, 199);
+    margin-bottom: 30px;
+}
+
+form > button:hover {
+    transform: scale(0.9)
+}
+
+form > button:focus, input:focus {
+    outline: none
 }
 
 form > input {
     width: 200px;
 }
+.form-link-container:hover {
+    background-color: rgba(245, 209, 67. 0.2);
+}
 
 .form-container {
-    width: 40vw;
-}
-
-.link-container {
     display: flex;
+    flex-direction: column;
 }
 
-.link-container > a:link {
-    margin-right: 5px;
+.form-container p, a {
+    text-align: center;
     color: black;
     text-decoration: none;
 }
 
-.link-container > a:visited {
+.form-container h1 {
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 25px;
+    margin-bottom: 20px;
     color: black;
 }
 
-.link-container > a:active {
-    text-decoration: underline;
-    text-decoration-color: red;
+.form-container a:visited {
+    color: #7E7254;
 }
+.form-container p:hover {
+    color: #B0BFC7;
+    transform: scale(1.2);
+}
+
 .form-link-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 90vh;
-    border: 2px solid gray;
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+    width: 300px;
+    border-radius: 10px;
+    margin-right: auto;
+    margin-left: auto;
+    height: 300px;
+    border: 2px solid #B0BFC7;
+    background-color: white;
+
 }

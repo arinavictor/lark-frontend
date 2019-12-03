@@ -1,6 +1,11 @@
+@import url('https://fonts.googleapis.com/css?family=Titillium+Web:300&display=swap');
+
 * {
-    box-sizing: border-box;
+	box-sizing: border-box;
+	font-family: 'Titillium Web', sans-serif;
+
 }
+
 
 /* http://meyerweb.com/eric/tools/css/reset/ 
    v2.0 | 20110126
