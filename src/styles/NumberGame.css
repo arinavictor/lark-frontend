@@ -18,3 +18,30 @@
     padding: 8px;
     margin-bottom: 8px;
 }
+
+.dnd-number.size-one   { 
+    width: 40px !important; 
+    border: 1px solid lightgrey;
+    border-radius: 2px;
+
+}
+.dnd-number.size-two   { 
+    width: 80px !important; 
+    border: 1px solid lightgrey;
+    border-radius: 2px;
+}
+.dnd-number.size-three { 
+    width: 120px !important; 
+    border: 1px solid lightgrey;
+    border-radius: 2px;
+}
+.dnd-number.size-four  { 
+    width: 160px !important; 
+    border: 1px solid lightgrey;
+    border-radius: 2px;
+}
+.dnd-number.size-five  {
+     width: 200px !important; 
+     border: 1px solid lightgrey;
+     border-radius: 2px;
+}

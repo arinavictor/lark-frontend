@@ -5,6 +5,7 @@ import Number from './Number'
 
 export default class Column extends Component {
     render() {
+
         return (
             <div className='column-container'>
                 <h1 className='column-title'>{this.props.column.title}</h1>
