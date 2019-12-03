@@ -1,9 +1,9 @@
 import React from 'react'
 
-export default function Contact() {
+export default function OtherGame() {
     return (
         <div>
-            <h1>Contact Me!</h1>
+            <h1>Coming soon!</h1>
         </div>
     )
 }

@@ -1,0 +1,30 @@
+@import url('https://fonts.googleapis.com/css?family=Titillium+Web:300&display=swap');
+
+
+.game-card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30vw;
+    height: 40vh;
+    border: 1px solid gray;
+    border-radius: 10px;
+    margin-left: 15px;
+}
+
+/* .number-game-card h1 {
+    font-size: 20px;
+} */
+
+.game-container {
+    font-family: 'Titillium Web', sans-serif;
+}
+
+.games-list {
+    display: flex;
+}
+
+.game-container h1{
+    font-size: 20px;
+    margin: 10px;
+}

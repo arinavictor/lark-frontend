@@ -1,0 +1,20 @@
+.column-container {
+    margin: 8px;
+    border: 1px solid lightgray;
+    border-radius: 2px;
+}
+
+.column-title {
+    padding: 8px;
+}
+
+.number-boxes {
+    padding: 8px;
+}
+
+.number-box {
+    border: 1px solid lightgrey;
+    border-radius: 2px;
+    padding: 8px;
+    margin-bottom: 8px;
+}

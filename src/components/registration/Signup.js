@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import {Link} from 'react-router-dom'
 import {connect} from 'react-redux'
 import {postUser} from '../../actions/user'
-import NavBar from '../NavBar'
 
 import '../../styles/Registration.css'
 
@@ -30,7 +29,6 @@ import '../../styles/Registration.css'
         const {username, password} = this.state 
         return (
             <div>
-                <NavBar />
                 <main className='main'>
                 <div className='form-link-container'>
                     <div className='form-container'>

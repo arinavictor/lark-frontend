@@ -6,7 +6,6 @@ import '../../styles/Registration.css'
 // import backArrow from '../../images/left-arrow.png'
 import '../../styles/Home.css'
 
-import NavBar from '../NavBar'
 
 class Login extends Component {
     state = {
@@ -36,7 +35,6 @@ class Login extends Component {
         const {username, password} = this.state 
         return (
             <div>
-                <NavBar />
                 <main className='main'>
                 <div className='form-link-container'>
                     <div className='form-container'>
