@@ -5,7 +5,7 @@ import '../styles/NumberGame.css'
 export default class Number extends Component {
     render() {
         const getId = this.props.number.id
-        const className = `dnd-number size-${getId}`
+        const className = `dnd-number size-${getId} number-box`
 
         return (
             <Draggable

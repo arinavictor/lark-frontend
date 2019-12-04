@@ -2,6 +2,9 @@
     margin: 8px;
     border: 1px solid lightgray;
     border-radius: 2px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .column-title {
@@ -9,39 +12,32 @@
 }
 
 .number-boxes {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     padding: 8px;
 }
 
 .number-box {
-    border: 1px solid lightgrey;
+    border: 1px solid #B0BFC7;
+    background-color: #B0BFC7;
     border-radius: 2px;
     padding: 8px;
-    margin-bottom: 8px;
+    margin-right: auto;
+    margin-left: auto;
+    margin-bottom: 2px;
 }
 
 .dnd-number.size-one   { 
     width: 40px !important; 
-    border: 1px solid lightgrey;
-    border-radius: 2px;
 
 }
 .dnd-number.size-two   { 
-    width: 80px !important; 
-    border: 1px solid lightgrey;
-    border-radius: 2px;
-}
+    width: 80px !important; }
 .dnd-number.size-three { 
-    width: 120px !important; 
-    border: 1px solid lightgrey;
-    border-radius: 2px;
-}
+    width: 120px !important; }
 .dnd-number.size-four  { 
-    width: 160px !important; 
-    border: 1px solid lightgrey;
-    border-radius: 2px;
-}
+    width: 160px !important; }
 .dnd-number.size-five  {
      width: 200px !important; 
-     border: 1px solid lightgrey;
-     border-radius: 2px;
 }
