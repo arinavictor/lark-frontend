@@ -47,6 +47,10 @@ export default class NumberGame extends Component {
         const sound = win ? Sound : null;
         new Audio(sound).play()
     }
+
+    restartGame = () => {
+        this.setState({...initialData, win: false})
+    }
     
     render() {
         
@@ -60,7 +64,7 @@ export default class NumberGame extends Component {
                 }
             </DragDropContext>
             { (this.state.win) 
-             ? <button>RESTART</button>
+             ? <button onClick={this.restartGame}>RESTART</button>
              : null 
             }   
             </div>
