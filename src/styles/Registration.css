@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Titillium+Web:300&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Nixie+One&display=swap');
 
 * {
     box-sizing: border-box;
@@ -10,14 +11,17 @@ body {
 }
 
 .nav-bar {
-    font-family: 'Titillium Web', sans-serif;
+    /* font-family: 'Titillium Web', sans-serif; */
+    font-family: 'Nixie One', cursive;
+    font-weight: bold;
     /* position: fixed; */
     width: 100vw;
     height: 18vh;
     background-color: #B0BFC7;
     display: flex;
     align-items: center;
-    /* padding-bottom: 10px; */
+    border-top: 1px solid gray;
+    border-bottom: 1px solid gray;
 }
 
 
@@ -25,6 +29,7 @@ body {
     height: 20vh;
     margin-top: 10px;
     padding-left: 15px;
+  
     /* height: 8vh; */
 }
 
@@ -36,14 +41,14 @@ body {
     margin-right: auto;
     align-items: flex-end;
     justify-content: space-evenly;
-    /* border-top: 1px solid gray;
-    border-bottom: 1px solid gray; */
+
     /* bottom: 0; */
 }
 
 .main-nav a {
     /* padding: 2px 8px 2px 8px; */
     /* background-color: #F3DCD3; */
+    color: rgb(3, 0, 3);
     margin-bottom: 18px;
     width: 30%;
 }

@@ -1,5 +1,6 @@
 {
   "projects": {
-    "default": "blue-sky-games"
+    "default": "blue-sky-games",
+    "production": "lark-games"
   }
 }

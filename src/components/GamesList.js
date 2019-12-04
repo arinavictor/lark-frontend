@@ -4,7 +4,7 @@ import '../styles/GameCard.css'
 
 export default function GamesList() {
     return (
-        <div>
+        <div className='all-games'>
             <h2>List of Games:</h2>
             <div className='games-list'>
             <Game gameId={1} title={"Order Numbers"} />

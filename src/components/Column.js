@@ -8,7 +8,10 @@ export default class Column extends Component {
 
         return (
             <div className='column-container'>
-                <h1 className='column-title'>{this.props.column.title}</h1>
+                <section className='game-info'>
+                    <h1 className='column-title'>{this.props.column.title}</h1>
+                    <p className='game-description'>{this.props.column.content}</p>
+                </section>
                 <Droppable droppableId={this.props.column.id}>
                     {(provided) => (
                         <div className='number-boxes'

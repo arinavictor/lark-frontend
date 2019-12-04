@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import { logoutUser } from '../actions/user'
 import {Link} from 'react-router-dom'
 
-import Logo from '../images/lark_logo4.png'
+import Logo from '../assets/lark_logo4.png'
 
 function NavBar({user}) {
     return (

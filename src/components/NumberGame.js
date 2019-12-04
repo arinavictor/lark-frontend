@@ -2,56 +2,68 @@ import React, { Component } from 'react'
 import '../styles/GameCard.css'
 import { DragDropContext } from 'react-beautiful-dnd'
 import initialData from '../initial-data'
+import Sound from '../assets/kids_cheering.mp3'
 import Column from './Column'
 
 export default class NumberGame extends Component {
 
     state = {...initialData, win: false}
 
-    onDragEnd = (result) => {
+    onDragEnd = async (result) => {
         const { destination, source, draggableId } = result 
 
         if (!destination) { return }
-
-        // if (
-        //     destination.droppableId === source.droppableId && 
-        //     destination.index === source.index
-        // ) {
-        //     return;
-        // }
 
         const column = this.state.column;
         const numberIds = Array.from(column.numberIds);
         numberIds.splice(source.index, 1);
         numberIds.splice(destination.index, 0, draggableId);
-        // const numbers = numberIds.map((numberId) => parseInt(this.state.numbers[numberId].content, 10))
-        // const win = isSortedAsc(numbers)
+        const numbers = numberIds.map((numberId) => parseInt(this.state.numbers[numberId].content, 10))
+        const win = await this.isSortedAsc(numbers)
 
+        this.updateState(column, numberIds, win)
+        this.playSound(win)
+        
+    }
+
+    updateState = (column, numberIds, win) => {
         const newColumn = {
             ...column,
             numberIds
         }
 
         this.setState({ 
-            ...this.state,
-            column: newColumn
+            column: newColumn,
+            win
          })
-        
+
     }
 
-    // isSortedAsc = (list) => {
-    //     return list.every((val, i, arr) => !i || (val >= arr[i - 1]));
-    //   }
+    isSortedAsc = (array) => {
+          return array.every((val, i, arr) => !i || (val >= arr[i - 1]))
+        }
+
+    playSound = (win) => {
+        const sound = win ? Sound : null;
+        new Audio(sound).play()
+    }
+    
     render() {
         
         const numbers = this.state.column.numberIds.map(numberId => this.state.numbers[numberId])
             
         return (
+            <div>
             <DragDropContext onDragEnd={this.onDragEnd}>
                 { 
                     <Column key={this.state.column.id} column={this.state.column} numbers={numbers}/>
                 }
             </DragDropContext>
+            { (this.state.win) 
+             ? <button>RESTART</button>
+             : null 
+            }   
+            </div>
         )
     }
 }

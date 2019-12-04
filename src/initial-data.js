@@ -8,6 +8,7 @@ const initialData = {
     },
     column: {
             title: 'Order the Numbers',
+            content: 'Drag the blocks to reorder them from lowest to highest!',
             id: 'column-1',
             numberIds: ['four', 'one', 'five', 'three', 'two'],
         
