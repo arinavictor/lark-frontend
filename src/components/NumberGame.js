@@ -57,14 +57,14 @@ export default class NumberGame extends Component {
         const numbers = this.state.column.numberIds.map(numberId => this.state.numbers[numberId])
             
         return (
-            <div>
+            <div className='number-game'>
             <DragDropContext onDragEnd={this.onDragEnd}>
                 { 
                     <Column key={this.state.column.id} column={this.state.column} numbers={numbers}/>
                 }
             </DragDropContext>
             { (this.state.win) 
-             ? <button onClick={this.restartGame}>RESTART</button>
+             ? <button className='restart-btn' onClick={this.restartGame}>RESTART</button>
              : null 
             }   
             </div>

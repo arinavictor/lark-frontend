@@ -1,6 +1,23 @@
 @import url('https://fonts.googleapis.com/css?family=Titillium+Web:300&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Nixie+One&display=swap');
 
+.number-game {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.restart-btn {
+    width: 70px;
+    height: 30px;
+    background-color: rgb(176, 191, 199);
+    border-radius: 4px;
+    color: black;
+}
 
+.restart-btn:hover {
+    transform: scale(1.2);
+    transition: 0.2s ease;
+}
 .game-card {
     display: flex;
     justify-content: center;
@@ -12,6 +29,16 @@
     margin-right: 15px;
 }
 
+.game-card:hover {
+    background-color: #CAC1CB;
+    transition: background-color 0.2s ease;
+    cursor: pointer;
+}
+.game-card h1:hover {
+    color: white;
+    transform: scale(1.2);
+}
+
 .all-games {
     margin-left: 20px;
     height: 60vh;
@@ -19,6 +46,11 @@
     flex-direction: column;
     justify-content: space-evenly;
     /* align-items: space-around; */
+}
+
+.all-games h2 {
+    font-family: 'Nixie One', cursive;
+    font-size: 20px;
 }
 
 .game-container {
@@ -30,6 +62,6 @@
 }
 
 .game-container h1{
-    font-size: 20px;
+    font-size: 15px;
     margin: 10px;
 }
