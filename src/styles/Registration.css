@@ -26,6 +26,7 @@ body {
     height: 20vh;
     margin-top: 10px;
     padding-left: 15px;
+  
 }
 
 .main-nav {
@@ -79,12 +80,12 @@ body {
     margin-bottom: 30px;
 }
 
-form {
+.form-link-container form {
     display: flex;
     flex-direction: column;
 }
 
-form > button, input {
+.form-link-container form > button, input {
         width: 200px;
         height: 35px;
         border-radius: 10px;
@@ -93,20 +94,20 @@ form > button, input {
         padding: 3px 15px;
 }
 
-form > button {
+.form-link-container form > button {
     background-color: rgb(176, 191, 199);
     margin-bottom: 30px;
 }
 
-form > button:hover {
+.form-link-container form > button:hover {
     transform: scale(0.9)
 }
 
-form > button:focus, input:focus {
+.form-link-container form > button:focus, input:focus {
     outline: none
 }
 
-form > input {
+.form-link-container form > input {
     width: 200px;
 }
 .form-link-container:hover {

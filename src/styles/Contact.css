@@ -1,0 +1,56 @@
+@import url('https://fonts.googleapis.com/css?family=Nixie+One&display=swap');
+
+
+.contact-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    height: 70vh
+}
+
+.contact-page h1 {
+    font-size: 25px;
+    margin-top: 45px;
+    font-family: 'Nixie One', cursive;
+}
+
+.contact-form {
+    border: 1px solid gray;
+    width: 80vw;
+    border-radius: 4px;
+    display: flex;
+    flex-direction: column;
+    align-items:  center;
+    margin: 20px;
+    padding: 20px;
+    background-color: #CAC1CB;
+}
+
+.contact-form input {
+    background-color: rgba(255, 255, 255, 0.7);
+    width: 80%;
+    margin-bottom: 12px;
+}
+
+.contact-form textarea {
+    font-size: 15px;
+    width: 80%;
+    border-radius: 4px;
+    border: unset;
+    background-color: rgba(255, 255, 255, 0.7)
+    
+}
+
+.contact-form textarea:focus {
+    outline: none;
+}
+
+.contact-form input[type='submit'] {
+    background-color: rgb(162, 195, 212);
+}
+
+.contact-form > input[type='submit']:hover {
+    transform: scale(0.95);
+    transition: 0.2s ease-in
+}

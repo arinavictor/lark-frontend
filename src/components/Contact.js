@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import emailjs from 'emailjs-com'
+import '../styles/Contact.css'
 
 export default class Contact extends Component{
     state = {
@@ -12,7 +13,7 @@ export default class Contact extends Component{
     handleSubmit = (event) => {
         event.preventDefault()
 
-        const { name, email, subject, message } = this.state 
+        const { email, subject, message } = this.state 
 
         let templateParams = {
             from_name: email,
@@ -36,7 +37,6 @@ export default class Contact extends Component{
     }
 
     handleChange = (event) => {
-        console.log("im changing")
         const {name, value} = event.target
         this.setState({
             [name]: value 
@@ -44,15 +44,17 @@ export default class Contact extends Component{
     }
     
     render() {
-    console.log(this.state)    
         return (
-            <form className='contact-form' onSubmit={this.handleSubmit}>
-                <input type='text' name='name' value={this.state.name} onChange={this.handleChange} placeholder='Name'/>
-                <input type='text' name='email' value={this.state.email} onChange={this.handleChange} placeholder='Email' />
-                <input type='text' name='subject' value={this.state.subject} onChange={this.handleChange} placeholder='Subject' />
-                <textarea placeholder='Message' name='message' value={this.state.message} onChange={this.handleChange}></textarea>
-                <input type='submit' value='Send'/>
-            </form>
+            <div className='contact-page'>
+                <h1>Let's Get In Touch</h1>
+                <form className='contact-form' onSubmit={this.handleSubmit}>
+                    <input type='text' name='name' value={this.state.name} onChange={this.handleChange} placeholder='Name'/>
+                    <input type='text' name='email' value={this.state.email} onChange={this.handleChange} placeholder='Email' />
+                    <input type='text' name='subject' value={this.state.subject} onChange={this.handleChange} placeholder='Subject' />
+                    <textarea placeholder='Comments, concerns, etc...' name='message' value={this.state.message} onChange={this.handleChange}></textarea>
+                    <input type='submit' value='Send'/>
+                </form>
+            </div>
         )
   }
 }
