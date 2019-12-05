@@ -19,7 +19,7 @@ class Landing extends Component {
         return  (
             <div className='home-message'>
                 <h1>Welcome to Lark Games!</h1>
-                <p>A website for kids' games that doesn't keep score.</p>
+                <p>Web games for kids that don't keep score.</p>
             </div>
         )
 }
