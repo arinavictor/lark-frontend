@@ -16,7 +16,9 @@ class Login extends Component {
     componentDidMount = () => {
         if (!this.props.alert) {
             this.props.logout()
-        }   
+        }  else {
+            setTimeout(this.props.removeAlert, 2000) 
+        }
     }
 
     handleChange = event => {
@@ -63,13 +65,15 @@ class Login extends Component {
                             <button placeholder='submit' type='submit'>
                                 Log In
                             </button>
+                        </form>
                             {
                                 this.props.alert
-                                ? <p>{this.props.alert}</p>
+                                ? (<div className='alert-container'>
+                                    <h3>{this.props.alert}</h3> 
+                                    <h3>Please try again.</h3>
+                                </div>)
                                 : null
                             }
-                        </form>
-
                         <Link to='/signup'>
                         <p>New here?</p>
                         </Link>
@@ -86,7 +90,8 @@ const mapStateToProps = ({alert}) => ({
 })
 const mapDispatchToProps = dispatch => ({
     userLoginFetch: (userInfo, history) => userLoginFetch(dispatch, userInfo, history),
-    logout: () => logoutUser(dispatch)
+    logout: () => logoutUser(dispatch),
+    removeAlert: () => dispatch({type: 'LOGOUT_USER'})
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Login)

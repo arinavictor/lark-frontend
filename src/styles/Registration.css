@@ -80,6 +80,17 @@ body {
     margin-bottom: 30px;
 }
 
+.alert-container h3{
+    color: red;
+}
+
+.alert-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
 .form-link-container form {
     display: flex;
     flex-direction: column;
