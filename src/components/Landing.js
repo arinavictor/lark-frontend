@@ -6,7 +6,7 @@ import '../styles/Registration.css'
 class Landing extends Component {
 
     componentDidMount = () => {
-       this.props.validate()
+       if (localStorage.token) {this.props.validate()}
     }
    
 

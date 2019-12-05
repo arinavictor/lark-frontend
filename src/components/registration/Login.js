@@ -14,7 +14,9 @@ class Login extends Component {
     }
 
     componentDidMount = () => {
-        this.props.logout()
+        if (!this.props.alert) {
+            this.props.logout()
+        }   
     }
 
     handleChange = event => {
@@ -26,8 +28,9 @@ class Login extends Component {
     
     handleSubmit = event => {
         event.preventDefault()
-       this.props.userLoginFetch(this.state)
+       this.props.userLoginFetch(this.state, this.props.history)
         .then(r => this.props.history.push('/'))
+        .catch(error => console.log(error))
        
     }
     
@@ -60,6 +63,11 @@ class Login extends Component {
                             <button placeholder='submit' type='submit'>
                                 Log In
                             </button>
+                            {
+                                this.props.alert
+                                ? <p>{this.props.alert}</p>
+                                : null
+                            }
                         </form>
 
                         <Link to='/signup'>
@@ -73,10 +81,13 @@ class Login extends Component {
     }
 }
 
+const mapStateToProps = ({alert}) => ({
+    alert
+})
 const mapDispatchToProps = dispatch => ({
-    userLoginFetch: userInfo => userLoginFetch(dispatch, userInfo),
+    userLoginFetch: (userInfo, history) => userLoginFetch(dispatch, userInfo, history),
     logout: () => logoutUser(dispatch)
 })
 
-export default connect(null, mapDispatchToProps)(Login)
+export default connect(mapStateToProps, mapDispatchToProps)(Login)
 

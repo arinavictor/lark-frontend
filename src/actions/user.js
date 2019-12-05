@@ -23,7 +23,7 @@ export const postUser = (dispatch, user) => {
 }
 
 
-export const userLoginFetch = (dispatch, user) => {
+export const userLoginFetch = (dispatch, user, history) => {
        return fetch(authUrl, {
             method: "POST",
             headers: {
@@ -37,6 +37,9 @@ export const userLoginFetch = (dispatch, user) => {
                     localStorage.setItem("token", response.token)
                     dispatch(loginUser(response.user))
 
+                } else {
+                    dispatch(loginError())
+                    history.push('/login')
                 }
             })
             .catch(error => console.log(error))
@@ -63,4 +66,8 @@ export const logoutUser = (dispatch) => {
 const loginUser = userObj => ({
     type: "LOGIN_USER",
     payload: userObj
+})
+
+const loginError = () => ({
+    type: 'ERROR'
 })
