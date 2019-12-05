@@ -17,10 +17,8 @@ export const postUser = (dispatch, user) => {
                 if (response.user) {
                     localStorage.setItem("token", response.token)
                     dispatch(loginUser(response.user))
-                } else {
-                   console.log("error", response.error)
                 }
-            })
+            }).catch(error => console.log(error))
       
 }
 
@@ -39,10 +37,9 @@ export const userLoginFetch = (dispatch, user) => {
                     localStorage.setItem("token", response.token)
                     dispatch(loginUser(response.user))
 
-                } else {
-                   console.log("error", response.error)
                 }
             })
+            .catch(error => console.log(error))
     
 }
 

@@ -12,7 +12,6 @@ body {
 .nav-bar {
     font-family: 'Nixie One', cursive;
     font-weight: bold;
-    /* position: fixed; */
     width: 100vw;
     height: 18vh;
     background-color: #B0BFC7;
@@ -27,8 +26,6 @@ body {
     height: 20vh;
     margin-top: 10px;
     padding-left: 15px;
-  
-    /* height: 8vh; */
 }
 
 .main-nav {

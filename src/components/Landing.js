@@ -8,6 +8,7 @@ class Landing extends Component {
     componentDidMount = () => {
        this.props.validate()
     }
+   
 
     render() {
         const {history} = this.props
