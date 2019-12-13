@@ -1,7 +1,7 @@
 
-const newUserUrl = "http://localhost:9000/users"
-const authUrl = "http://localhost:9000/login"
-const BASE_URL = "http://localhost:9000"
+const BASE_URL = "https://lark-games.herokuapp.com"
+const newUserUrl = `${BASE_URL}/users`
+const authUrl = `${BASE_URL}/login`
 
 
 export const postUser = (dispatch, user) => {
