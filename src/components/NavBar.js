@@ -9,7 +9,7 @@ function NavBar({user}) {
     
     return (
         <div className='nav-bar'>
-            <img alt='logo' src={Logo}/> 
+            { localStorage.token !== undefined ? <Link to='/'><img alt='logo' src={Logo}/></Link> : <img alt='logo' src={Logo}/> }
             <div className='main-nav'>
                 { localStorage.token !== undefined ? <Link to='/games'>games</Link> : null }
                 { localStorage.token !== undefined ? <Link to='/contact'>contact</Link> : null }

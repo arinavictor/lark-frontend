@@ -13,15 +13,15 @@
 
 ## DEMO VIDEO
 
-[Youtube](coming soon)
+[Youtube](https://youtu.be/SVeX90yXcM0)
 
 ## BACKEND REPO
 
-Lark Games Backend
+[Lark Games Backend](https://github.com/arinavictor/lark-backend)
 
 ## Deployed 
 
-Deployment Link 
+[Lark Games on Firebase](https://lark-games.firebaseapp.com/)
 
 ## Install Instructions
  ### To install locally:
@@ -32,12 +32,11 @@ Deployment Link
 
 ## Features
 - A user can sign up and log in. 
-- A drag and drop game to reorder five numbered blocks from lowest to highest. 
-- A contact me form that utilizes EmailJS to send an email to my personal email account with any inquiries, comments, or suggestions.
+- A user can play a drag and drop game to reorder five numbered blocks from lowest to highest. 
+- A user can contact me through a form that utilizes EmailJS to send an email to my personal email account with any inquiries, comments, or suggestions.
 
 ## To-Do List
 - Randomize the reordering of the numbered blocks.
-- Make the logo in the header a link to the home page.
 - Include form validations on the log in and sign up forms that flash warnings if fields are left incomplete
 - Add more games!
 
