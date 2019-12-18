@@ -12,6 +12,10 @@ import OtherGame from './components/OtherGame'
 import NumberGame from './components/NumberGame'
 
 export default class App extends Component {
+  componentDidMount() {
+    document.title = 'Lark Games'
+  }
+  
   render() {
     return (
       <div>
